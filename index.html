@@ -1,1 +1,29 @@
-
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>OKI v1.1</title>
+<style>
+body{font-family:system-ui,sans-serif;background:#f4f6fa;color:#172033;margin:0}
+header{background:#183e79;color:white;padding:22px}
+main{padding:18px;max-width:700px;margin:auto}
+.card{background:white;border-radius:12px;padding:18px;margin:14px 0}
+button{padding:12px;border:0;border-radius:8px;background:#2459a4;color:white}
+small{color:#657085}
+</style>
+</head>
+<body>
+<header><h1>OKI</h1><div>Open Knowledge Infrastructure</div></header>
+<main>
+<div class="card"><h2>OKI v1.1</h2><p>スマートフォン対応の公開テスト版です。</p></div>
+<div class="card"><h3>情報収集</h3><p>お気に入りのみ・30分間隔・Wi-Fi限定・省電力時停止</p><small>現在は公開ページの表示テスト段階です。情報収集機能は未実装です。</small></div>
+<div class="card"><h3>端末内のメモ</h3><input id="memo" placeholder="メモを入力"><button onclick="save()">保存</button><p id="result"></p></div>
+</main>
+<script>
+const memo=document.getElementById('memo');
+memo.value=localStorage.getItem('oki-memo')||'';
+function save(){localStorage.setItem('oki-memo',memo.value);document.getElementById('result').textContent='このブラウザに保存しました';}
+</script>
+</body>
+</html>
